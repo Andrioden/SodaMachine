@@ -1,16 +1,16 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ConsoleApplication1;
+using SodaSystems.Core;
 
-namespace SodaMachine.Tests
+namespace SodaSystems.Tests
 {
     [TestClass]
-    public class SodaMachineTests
+    public class SpeedRoute
     {
         [TestMethod]
         public void UT_SodaMachine_ProcessInput_insert()
         {
-            ConsoleApplication1.SodaMachine sodaMachine = new ConsoleApplication1.SodaMachine();
+            SodaMachine sodaMachine = new SodaMachine();
 
             Assert.AreEqual(0, sodaMachine.GetMoney());
 
@@ -33,7 +33,7 @@ namespace SodaMachine.Tests
         [TestMethod]
         public void UT_SodaMachine_ProcessInput_order()
         {
-            ConsoleApplication1.SodaMachine sodaMachine = new ConsoleApplication1.SodaMachine();
+            SodaMachine sodaMachine = new SodaMachine();
 
             Assert.AreEqual(5, sodaMachine.GetInventoryNr("coke"));
 
@@ -48,7 +48,7 @@ namespace SodaMachine.Tests
         [TestMethod]
         public void UT_SodaMachine_ProcessInput_sms_order()
         {
-            ConsoleApplication1.SodaMachine sodaMachine = new ConsoleApplication1.SodaMachine();
+            SodaMachine sodaMachine = new SodaMachine();
 
             Assert.AreEqual(5, sodaMachine.GetInventoryNr("coke"));
 
@@ -68,7 +68,7 @@ namespace SodaMachine.Tests
         [TestMethod]
         public void UT_SodaMachine_ProcessInput_recall()
         {
-            ConsoleApplication1.SodaMachine sodaMachine = new ConsoleApplication1.SodaMachine();
+            SodaMachine sodaMachine = new SodaMachine();
 
             sodaMachine.ProcessInput("insert 1");
             Assert.AreEqual(1, sodaMachine.GetMoney());

@@ -8,8 +8,8 @@
     <ProjectGuid>{7925087C-42D0-4B1D-BB62-934FB00A4269}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SodaMachine.Tests</RootNamespace>
-    <AssemblyName>SodaMachine.Tests</AssemblyName>
+    <RootNamespace>SodaSystems.Tests</RootNamespace>
+    <AssemblyName>SodaSystems.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApplication1\ConsoleApplication1.csproj">
-      <Project>{9dfc3066-31e8-4483-a3ea-421e68b5cd14}</Project>
-      <Name>ConsoleApplication1</Name>
+    <ProjectReference Include="..\SodaSystems.Core\SodaSystems.Core.csproj">
+      <Project>{02878cd2-b5de-40a3-9368-4df255f3e8a4}</Project>
+      <Name>SodaSystems.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

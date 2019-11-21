@@ -1,20 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace SodaSystems.Core
 {
-    internal class Program
-    {
-        private static void Main(string[] args)
-        {
-            SodaMachine sodaMachine = new SodaMachine();
-            sodaMachine.Start();
-        }
-    }
-
     public class SodaMachine
     {
         private int money;
@@ -179,11 +167,5 @@ namespace ConsoleApplication1
                 money = 0;
             }
         }
-    }
-
-    public class Soda
-    {
-        public string Name { get; set; }
-        public int Nr { get; set; }
     }
 }
