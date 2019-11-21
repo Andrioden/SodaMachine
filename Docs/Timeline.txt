@@ -1,0 +1,2 @@
+2019.11.21 03:10 - Start, oppset git, manuel testing
+2019.11.21 03:20 - Gjør testbart
