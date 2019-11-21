@@ -1,0 +1,17 @@
+- Made the code testable and wrote some tests, admittedly not tests that cover all scenarios
+- Renamed the solution and project and folders to approporate names
+- Updated projects to a newer .NET version
+- Splitt the console output and SodaMachine functionality in two projects using inheritance. This has the advantages of:
+	- Separating the logic so it is easier to read
+	- Allowing an natural addition or replacement of the Console user gui with for an example an forms gui
+	- Allows it to be more easily converted to an web api since now SodaMachine contains most logic.
+	- Makes it more testable, ideally I would make a fully fledged test suite for the SodaMachine class
+	- Encapsulating all console output logic and behavior in the SodaSystems.Console project
+- Much more dry code, especially for the order and order sms command.
+- Less code indention debth for order and order sms
+- More robust insert command, not crashing
+- Insert do not support 0 or negative input, which seems like a reasonable domain assumption, might be wrong thou.
+- Inventory now considered the "configuration" and input of the SodaMachine
+- Allow unit cost as part of inventory configuration
+- Prettier and more consistent console output
+- And several other minor structural or code style improvements

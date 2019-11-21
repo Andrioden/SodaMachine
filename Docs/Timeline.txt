@@ -1,2 +1,4 @@
 2019.11.21 03:10 - Start, oppset git, manuel testing
 2019.11.21 03:20 - Se github commits for videre timeline
+2019.11.21 06:50 - Ferdig med utvikling
+2019.11.21 07:05 - Ferdig med dokumentasjon

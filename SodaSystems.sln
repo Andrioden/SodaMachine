@@ -5,6 +5,7 @@ VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{CAEE1E1C-5C3A-4D23-AB92-557AAB380604}"
 	ProjectSection(SolutionItems) = preProject
+		Docs\Improvements.txt = Docs\Improvements.txt
 		Docs\Timeline.txt = Docs\Timeline.txt
 	EndProjectSection
 EndProject
