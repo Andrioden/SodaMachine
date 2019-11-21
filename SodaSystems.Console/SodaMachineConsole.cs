@@ -1,4 +1,5 @@
 ﻿using SodaSystems.Core;
+using SodaSystems.Core.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,22 +39,33 @@ namespace SodaSystems.Console
         {
             if (input.StartsWith("insert"))
                 ProcessInsert(input);
+
             else if (input.StartsWith("order"))
                 ProcessOrder(input);
+
             else if (input.StartsWith("sms order"))
                 ProcessOrder(input, ignoreCost: true, recallAfter: false);
+
             else if (input.Equals("recall"))
                 ProcessRecall();
+
             else
-                Print($"Command '{input}' not known");
+                Print($"Unknown command '{input}'");
         }
 
         private void ProcessInsert(string input)
         {
-            int amount = int.Parse(input.Split(' ')[1]);
-            sodaMachine.InsertMoney(amount);
+            string amountStr = input.Split(' ').Last();
 
-            Print($"Adding {amount} to credit");
+            if (amountStr.IsInteger())
+            {
+                int amount = amountStr.ToInteger();
+                sodaMachine.InsertMoney(amountStr.ToInteger());
+
+                Print($"Adding {amount} to credit");
+            }
+            else
+                Print($"Unknown command '{input}', please use the format 'insert (money)'");
         }
 
         private void ProcessOrder(string input, bool ignoreCost = false, bool recallAfter = true)
