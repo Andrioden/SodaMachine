@@ -26,14 +26,18 @@ namespace SodaSystems.Console
 
         private void PrintHelp()
         {
-            Print("\n\nAvailable commands:");
-            Print("insert (money) - Money put into money slot");
-            Print("order (coke, sprite, fanta) - Order from machines buttons");
-            Print("sms order (coke, sprite, fanta) - Order sent by sms");
-            Print("recall - gives money back");
-            Print("-------");
+            Print("");
+            Print("");
+            Print("Available commands:");
+            Print("- insert (money) : Money put into money slot");
+            Print("- order (coke, sprite, fanta) : Order from machines buttons");
+            Print("- sms order (coke, sprite, fanta) : Order sent by sms");
+            Print("- recall : gives money back");
+            Print("");
+            Print("-------------------");
             Print("Inserted money: " + Money);
-            Print("-------\n\n");
+            Print("-------------------");
+            Print("");
         }
 
         public void ProcessInput(string input)
@@ -51,7 +55,7 @@ namespace SodaSystems.Console
                 ProcessRecall();
 
             else
-                Print($"Unknown command '{input}'");
+                Print($"=> Unknown command '{input}'");
         }
 
         private void ProcessInsert(string input)
@@ -64,12 +68,12 @@ namespace SodaSystems.Console
                 InsertMoney(amountStr.ToInteger());
 
                 if (amount > 0)
-                    Print($"Inserting {amount} money");
+                    Print($"=> Inserting {amount} money");
                 else
-                    Print($"Cant insert negative or 0 to money");
+                    Print($"=> Cant insert negative or 0 to money");
             }
             else
-                Print($"Unknown command '{input}', please use the format 'insert (money)'");
+                Print($"=> Unknown command '{input}', please use the format 'insert (money)'");
         }
 
         private void ProcessOrder(string input, bool ignoreCost = false, bool recallAfter = true)
@@ -80,23 +84,23 @@ namespace SodaSystems.Console
 
             if (result == OrderResult.Ok)
             {
-                Print($"Giving {sodaName} out");
+                Print($"=> Giving {sodaName} out");
 
                 if (recallAfter)
                     ProcessRecall();
             }
             else if (result == OrderResult.NoSodaWithName)
-                Print($"No such soda with name '{sodaName}'");
+                Print($"=> No such soda with name '{sodaName}'");
             else if (result == OrderResult.NoSodaLeft)
-                Print($"No {sodaName} left");
+                Print($"=> No {sodaName} left");
             else if (result == OrderResult.NeedMoreMoney)
-                Print($"Need {GetSoda(sodaName).UnitCost - Money} more money");
+                Print($"=> Need {GetSoda(sodaName).UnitCost - Money} more money");
         }
 
         private void ProcessRecall()
         {
             int recalledMoney = RecallMoney();
-            Print($"Giving {recalledMoney} money out in change");
+            Print($"=> Giving {recalledMoney} money out in change");
         }
 
         private static void Print(string str)
