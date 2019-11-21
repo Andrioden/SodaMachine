@@ -76,7 +76,7 @@ namespace SodaSystems.Console
 
             if (result == OrderResult.Ok)
             {
-                Print("Giving coke out");
+                Print($"Giving {sodaName} out");
 
                 if (recallAfter)
                     ProcessRecall();
