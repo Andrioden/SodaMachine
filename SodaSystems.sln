@@ -9,11 +9,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{CAEE1E1C-5
 		Docs\Timeline.txt = Docs\Timeline.txt
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SodaSystems.Console", "SodaSystems.Console\SodaSystems.Console.csproj", "{CB827B3B-ADFF-447C-A638-AE1AD5A6AD73}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SodaSystems.Core", "SodaSystems.Core\SodaSystems.Core.csproj", "{02878CD2-B5DE-40A3-9368-4DF255F3E8A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SodaSystems.Tests", "SodaSystems.Tests\SodaSystems.Tests.csproj", "{7925087C-42D0-4B1D-BB62-934FB00A4269}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SodaSystems.Console", "SodaSystems.Console\SodaSystems.Console.csproj", "{CB827B3B-ADFF-447C-A638-AE1AD5A6AD73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
