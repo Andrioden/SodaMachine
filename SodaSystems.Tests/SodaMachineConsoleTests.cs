@@ -13,7 +13,7 @@ namespace SodaSystems.Tests
         [DataRow(1, 0,   1)]
         [DataRow(1, 1,   2)]
         [DataRow(1, 4,   5)]
-        [DataRow(1, -1,   0)]
+        [DataRow(1, -1,   1)]
         public void UT_SodaMachineConsole_ProcessInput_insert(int firstInsert, int secondInsert, int expMoney)
         {
             SodaMachineConsole console = BasicSodaMachineConsole();

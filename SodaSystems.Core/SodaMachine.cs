@@ -24,7 +24,8 @@ namespace SodaSystems.Core
 
         public void InsertMoney(int amount)
         {
-            Money += amount;
+            if (amount > 0)
+                Money += amount;
         }
 
         public OrderResult Order(string sodaName, bool ignoreCost = false)

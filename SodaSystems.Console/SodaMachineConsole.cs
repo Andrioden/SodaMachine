@@ -63,7 +63,10 @@ namespace SodaSystems.Console
                 int amount = amountStr.ToInteger();
                 InsertMoney(amountStr.ToInteger());
 
-                Print($"Adding {amount} to credit");
+                if (amount > 0)
+                    Print($"Inserting {amount} money");
+                else
+                    Print($"Cant insert negative or 0 to money");
             }
             else
                 Print($"Unknown command '{input}', please use the format 'insert (money)'");
@@ -87,13 +90,13 @@ namespace SodaSystems.Console
             else if (result == OrderResult.NoSodaLeft)
                 Print($"No {sodaName} left");
             else if (result == OrderResult.NeedMoreMoney)
-                Print($"Need {GetSoda(sodaName).UnitCost - Money} more");
+                Print($"Need {GetSoda(sodaName).UnitCost - Money} more money");
         }
 
         private void ProcessRecall()
         {
             int recalledMoney = RecallMoney();
-            Print($"Giving {recalledMoney} out in change");
+            Print($"Giving {recalledMoney} money out in change");
         }
 
         private static void Print(string str)
