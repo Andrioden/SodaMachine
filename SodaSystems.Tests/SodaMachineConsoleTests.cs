@@ -9,27 +9,18 @@ namespace SodaSystems.Tests
     [TestClass]
     public class SodaMachineConsoleTests
     {
-        [TestMethod]
-        public void UT_SodaMachineConsole_ProcessInput_insert()
+        [DataTestMethod]
+        [DataRow(1, 0,   1)]
+        [DataRow(1, 1,   2)]
+        [DataRow(1, 4,   5)]
+        [DataRow(1, -1,   0)]
+        public void UT_SodaMachineConsole_ProcessInput_insert(int firstInsert, int secondInsert, int expMoney)
         {
             SodaMachineConsole console = BasicSodaMachineConsole();
 
-            Assert.AreEqual(0, console.Money);
-
-            console.ProcessInput("insert 0");
-            Assert.AreEqual(0, console.Money);
-
-            console.ProcessInput("insert 1");
-            Assert.AreEqual(1, console.Money);
-
-            console.ProcessInput("insert 4");
-            Assert.AreEqual(5, console.Money);
-
-            console.ProcessInput("insert -1");
-            Assert.AreEqual(4, console.Money);
-
-            console.ProcessInput("insert -5");
-            Assert.AreEqual(-1, console.Money);
+            console.ProcessInput($"insert {firstInsert}");
+            console.ProcessInput($"insert {secondInsert}");
+            Assert.AreEqual(expMoney, console.Money);
         }
 
         [TestMethod]
