@@ -49,15 +49,19 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SodaMachineTests.cs" />
+    <Compile Include="SodaMachineConsoleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SodaSystems.Console\SodaSystems.Console.csproj">
+      <Project>{cb827b3b-adff-447c-a638-ae1ad5a6ad73}</Project>
+      <Name>SodaSystems.Console</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SodaSystems.Core\SodaSystems.Core.csproj">
-      <Project>{02878cd2-b5de-40a3-9368-4df255f3e8a4}</Project>
+      <Project>{02878CD2-B5DE-40A3-9368-4DF255F3E8A4}</Project>
       <Name>SodaSystems.Core</Name>
     </ProjectReference>
   </ItemGroup>

@@ -11,8 +11,8 @@ namespace SodaSystems.Console
     {
         private static void Main(string[] args)
         {
-            SodaMachine sodaMachine = new SodaMachine();
-            sodaMachine.Start();
+            SodaMachineConsole sodaMachineConsole = new SodaMachineConsole();
+            sodaMachineConsole.Start();
         }
     }
 }

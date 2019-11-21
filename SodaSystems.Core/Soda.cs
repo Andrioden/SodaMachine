@@ -7,6 +7,6 @@ namespace SodaSystems.Core
     public class Soda
     {
         public string Name { get; set; }
-        public int Nr { get; set; }
+        public int Amount { get; set; }
     }
 }
