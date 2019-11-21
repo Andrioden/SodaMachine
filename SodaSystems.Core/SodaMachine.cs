@@ -15,16 +15,11 @@ namespace SodaSystems.Core
             Inventory = inventory;
         }
 
-        private Soda GetSoda(string sodaName)
+        public Soda GetSoda(string sodaName)
         {
             return Inventory
                 .Where(i => i.Name.Equals(sodaName, StringComparison.InvariantCultureIgnoreCase))
                 .FirstOrDefault();
-        }
-
-        public int GetSodaAmount(string sodaName)
-        {
-            return GetSoda(sodaName).Amount;
         }
 
         public void InsertMoney(int amount)
@@ -32,22 +27,22 @@ namespace SodaSystems.Core
             Money += amount;
         }
 
-        public OrderResult Order(string sodaName, int amount, bool ignoreCost = false)
+        public OrderResult Order(string sodaName, bool ignoreCost = false)
         {
             Soda soda = GetSoda(sodaName);
 
             if (soda == null)
                 return OrderResult.NoSodaWithName;
-            if (soda.Amount <= 0)
+            if (soda.Units <= 0)
                 return OrderResult.NoSodaLeft;
-            if (ignoreCost == false && Money < 20)
+            if (ignoreCost == false && Money < soda.UnitCost)
                 return OrderResult.NeedMoreMoney;
 
             // All ok, run order
             if (ignoreCost == false)
-                Money -= 20;
+                Money -= soda.UnitCost;
 
-            soda.Amount--;
+            soda.Units--;
             return OrderResult.Ok;
         }
 

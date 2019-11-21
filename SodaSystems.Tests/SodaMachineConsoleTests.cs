@@ -28,14 +28,14 @@ namespace SodaSystems.Tests
         {
             SodaMachineConsole console = BasicSodaMachineConsole();
 
-            Assert.AreEqual(5, console.GetSodaAmount("coke"));
+            Assert.AreEqual(5, console.GetSoda("coke").Units);
 
             console.ProcessInput("insert 20");
             console.ProcessInput("order coke");
-            Assert.AreEqual(4, console.GetSodaAmount("coke"));
+            Assert.AreEqual(4, console.GetSoda("coke").Units);
 
             console.ProcessInput("order coke");
-            Assert.AreEqual(4, console.GetSodaAmount("coke"));
+            Assert.AreEqual(4, console.GetSoda("coke").Units);
         }
 
         [TestMethod]
@@ -43,19 +43,19 @@ namespace SodaSystems.Tests
         {
             SodaMachineConsole console = BasicSodaMachineConsole();
 
-            Assert.AreEqual(5, console.GetSodaAmount("coke"));
+            Assert.AreEqual(5, console.GetSoda("coke").Units);
 
             console.ProcessInput("sms order coke");
-            Assert.AreEqual(4, console.GetSodaAmount("coke"));
+            Assert.AreEqual(4, console.GetSoda("coke").Units);
 
             console.ProcessInput("sms order coke");
             console.ProcessInput("sms order coke");
             console.ProcessInput("sms order coke");
             console.ProcessInput("sms order coke");
-            Assert.AreEqual(0, console.GetSodaAmount("coke"));
+            Assert.AreEqual(0, console.GetSoda("coke").Units);
 
             console.ProcessInput("sms order coke");
-            Assert.AreEqual(0, console.GetSodaAmount("coke"));
+            Assert.AreEqual(0, console.GetSoda("coke").Units);
         }
 
         [TestMethod]
@@ -74,9 +74,9 @@ namespace SodaSystems.Tests
         {
             return new SodaMachineConsole(new List<Soda>
             {
-                new Soda { Name = "coke", Amount = 5 },
-                new Soda { Name = "sprite", Amount = 3 },
-                new Soda { Name = "fanta", Amount = 3 }
+                new Soda { Name = "coke", Units = 5, UnitCost = 20 },
+                new Soda { Name = "sprite", Units = 3, UnitCost = 20 },
+                new Soda { Name = "fanta", Units = 3, UnitCost = 20 }
             });
         }
     }

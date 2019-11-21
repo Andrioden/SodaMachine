@@ -13,9 +13,9 @@ namespace SodaSystems.Console
         {
             SodaMachineConsole sodaMachineConsole = new SodaMachineConsole(new List<Soda>
             {
-                new Soda { Name = "coke", Amount = 5 },
-                new Soda { Name = "sprite", Amount = 3 },
-                new Soda { Name = "fanta", Amount = 3 }
+                new Soda { Name = "coke", Units = 5, UnitCost = 20 },
+                new Soda { Name = "sprite", Units = 3, UnitCost = 20 },
+                new Soda { Name = "fanta", Units = 3, UnitCost = 20 }
             });
 
             sodaMachineConsole.Start();

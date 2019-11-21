@@ -73,7 +73,7 @@ namespace SodaSystems.Console
         {
             string sodaName = input.Split(' ').Last();
 
-            OrderResult result = Order(sodaName, 1, ignoreCost);
+            OrderResult result = Order(sodaName, ignoreCost);
 
             if (result == OrderResult.Ok)
             {
@@ -87,7 +87,7 @@ namespace SodaSystems.Console
             else if (result == OrderResult.NoSodaLeft)
                 Print($"No {sodaName} left");
             else if (result == OrderResult.NeedMoreMoney)
-                Print($"Need {20 - Money} more");
+                Print($"Need {GetSoda(sodaName).UnitCost - Money} more");
         }
 
         private void ProcessRecall()
