@@ -11,7 +11,13 @@ namespace SodaSystems.Console
     {
         private static void Main(string[] args)
         {
-            SodaMachineConsole sodaMachineConsole = new SodaMachineConsole();
+            SodaMachineConsole sodaMachineConsole = new SodaMachineConsole(new List<Soda>
+            {
+                new Soda { Name = "coke", Amount = 5 },
+                new Soda { Name = "sprite", Amount = 3 },
+                new Soda { Name = "fanta", Amount = 3 }
+            });
+
             sodaMachineConsole.Start();
         }
     }

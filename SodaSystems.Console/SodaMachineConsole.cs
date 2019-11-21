@@ -8,31 +8,32 @@ using System.Threading.Tasks;
 
 namespace SodaSystems.Console
 {
-    public class SodaMachineConsole
+    public class SodaMachineConsole : SodaMachine
     {
-        private SodaMachine sodaMachine = new SodaMachine();
 
-        public SodaMachine GetSodaMachine()
-        {
-            return sodaMachine;
-        }
+        public SodaMachineConsole(List<Soda> inventory) : base(inventory) { }
 
         public void Start()
         {
             while (true)
             {
-                Print("\n\nAvailable commands:");
-                Print("insert (money) - Money put into money slot");
-                Print("order (coke, sprite, fanta) - Order from machines buttons");
-                Print("sms order (coke, sprite, fanta) - Order sent by sms");
-                Print("recall - gives money back");
-                Print("-------");
-                Print("Inserted money: " + sodaMachine.GetMoney());
-                Print("-------\n\n");
+                PrintHelp();
 
                 string input = System.Console.ReadLine();
                 ProcessInput(input);
             }
+        }
+
+        private void PrintHelp()
+        {
+            Print("\n\nAvailable commands:");
+            Print("insert (money) - Money put into money slot");
+            Print("order (coke, sprite, fanta) - Order from machines buttons");
+            Print("sms order (coke, sprite, fanta) - Order sent by sms");
+            Print("recall - gives money back");
+            Print("-------");
+            Print("Inserted money: " + Money);
+            Print("-------\n\n");
         }
 
         public void ProcessInput(string input)
@@ -60,7 +61,7 @@ namespace SodaSystems.Console
             if (amountStr.IsInteger())
             {
                 int amount = amountStr.ToInteger();
-                sodaMachine.InsertMoney(amountStr.ToInteger());
+                InsertMoney(amountStr.ToInteger());
 
                 Print($"Adding {amount} to credit");
             }
@@ -72,7 +73,7 @@ namespace SodaSystems.Console
         {
             string sodaName = input.Split(' ').Last();
 
-            OrderResult result = sodaMachine.Order(sodaName, 1, ignoreCost);
+            OrderResult result = Order(sodaName, 1, ignoreCost);
 
             if (result == OrderResult.Ok)
             {
@@ -86,12 +87,12 @@ namespace SodaSystems.Console
             else if (result == OrderResult.NoSodaLeft)
                 Print($"No {sodaName} left");
             else if (result == OrderResult.NeedMoreMoney)
-                Print($"Need {20 - sodaMachine.GetMoney()} more");
+                Print($"Need {20 - Money} more");
         }
 
         private void ProcessRecall()
         {
-            int recalledMoney = sodaMachine.RecallMoney();
+            int recalledMoney = RecallMoney();
             Print($"Giving {recalledMoney} out in change");
         }
 

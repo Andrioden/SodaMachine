@@ -1,34 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace SodaSystems.Core
 {
     public class SodaMachine
     {
-        private int money = 0;
+        public int Money { get; private set; }
+        private List<Soda> Inventory { get; set; }
 
-        private Soda[] inventory = new[]
+        public SodaMachine(List<Soda> inventory)
         {
-            new Soda { Name = "coke", Amount = 5 },
-            new Soda { Name = "sprite", Amount = 3 },
-            new Soda { Name = "fanta", Amount = 3 }
-        };
-
-        public int GetMoney()
-        {
-            return money;
+            Money = 0;
+            Inventory = inventory;
         }
 
         private Soda GetSoda(string sodaName)
         {
-            return inventory
+            return Inventory
                 .Where(i => i.Name.Equals(sodaName, StringComparison.InvariantCultureIgnoreCase))
                 .FirstOrDefault();
-        }
-
-        public bool HasSodaWithName(string sodaName)
-        {
-            return GetSoda(sodaName) != null;
         }
 
         public int GetSodaAmount(string sodaName)
@@ -38,7 +29,7 @@ namespace SodaSystems.Core
 
         public void InsertMoney(int amount)
         {
-            money += amount;
+            Money += amount;
         }
 
         public OrderResult Order(string sodaName, int amount, bool ignoreCost = false)
@@ -49,12 +40,12 @@ namespace SodaSystems.Core
                 return OrderResult.NoSodaWithName;
             if (soda.Amount <= 0)
                 return OrderResult.NoSodaLeft;
-            if (ignoreCost == false && money < 20)
+            if (ignoreCost == false && Money < 20)
                 return OrderResult.NeedMoreMoney;
 
             // All ok, run order
             if (ignoreCost == false)
-                money -= 20;
+                Money -= 20;
 
             soda.Amount--;
             return OrderResult.Ok;
@@ -62,8 +53,8 @@ namespace SodaSystems.Core
 
         public int RecallMoney()
         {
-            int recalling = money;
-            money = 0;
+            int recalling = Money;
+            Money = 0;
             return recalling;
         }
     }
